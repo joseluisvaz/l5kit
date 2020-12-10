@@ -148,7 +148,7 @@ to train models that can recover from slight divergence from training set data
 
     # current position is included in history positions
     # [history_num_frames, 2]
-    history_positions_diff_m = np.diff(history_positions_m, axis=0)
+    history_positions_diff_m = -np.diff(history_positions_m, axis=0)
     # [history_num_frames, 2]
     history_vels_mps = np.float32(history_positions_diff_m / history_step_time)
 
