@@ -167,6 +167,7 @@ to train models that can recover from slight divergence from training set data
         "raster_from_world": raster_from_world,
         "agent_from_world": agent_from_world,
         "world_from_agent": world_from_agent,
+        "history_tl_faces": history_tl_faces,
         "centroid": agent_centroid_m,
         "yaw": agent_yaw_rad,
         "speed": np.linalg.norm(future_vels_mps[0]),
