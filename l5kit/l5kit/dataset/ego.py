@@ -81,7 +81,7 @@ None if not desired
             state_index (int): a relative frame index in the scene
             track_id (Optional[int]): the agent to rasterize or None for the AV
         Returns:
-            dict: the rasterised image in (Cx0x1) if the rast is not None, the target trajectory
+            dict: the rasterised image in (Cx0x1) if the rasterizer is not None, the target trajectory
             (position and yaw) along with their availability, the 2D matrix to center that agent,
             the agent track (-1 if ego) and the timestamp
 
@@ -106,7 +106,7 @@ None if not desired
         data["track_id"] = np.int64(-1 if track_id is None else track_id)  # always a number to avoid crashing torch
         data["world_to_image"] = data["raster_from_world"]  # TODO deprecate
 
-        # when rast is None, image could be None. In that case we remove the key
+        # when rasterizer is None, image could be None. In that case we remove the key
         if data["image"] is not None:
             data["image"] = data["image"].transpose(2, 0, 1)  # 0,1,C -> C,0,1
         else:
