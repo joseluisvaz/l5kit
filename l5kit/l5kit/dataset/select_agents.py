@@ -32,8 +32,8 @@ else:
         "However, writing the mask with this config may be inconsistent."
     )
 
-TH_YAW_DEGREE = 400
-TH_EXTENT_RATIO = 1.5
+TH_YAW_DEGREE = 30
+TH_EXTENT_RATIO = 1.1
 TH_DISTANCE_AV = 150
 
 
