@@ -104,7 +104,7 @@ Returns:
 
     # Gauss–Newton algorithm
     xyrv = np.hstack([gx, gy, gr, gv])
-    for _ in range(5):
+    for _ in range(2):
         xyrv = xyrv - np.linalg.lstsq(jacobian(xyrv), residuals(xyrv), rcond=None)[0]
     x, y, r, v = np.split(xyrv, 4)
     return x, y, r, v
