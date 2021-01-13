@@ -171,6 +171,7 @@ to train models that can recover from slight divergence from training set data
         "yaw": agent_yaw_rad,
         "speed": np.linalg.norm(future_vels_mps[0]),
         "extent": agent_extent_m,
+        "tl_faces": history_tl_faces[0]
     }
 
 
