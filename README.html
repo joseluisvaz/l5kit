@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>ML Prediction, Planning and Simulation for Self-Driving &mdash; L5Kit 1.0.5 documentation</title>
+  <title>ML Prediction, Planning and Simulation for Self-Driving &mdash; L5Kit 1.3.0 documentation</title>
   
 
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -51,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> L5Kit
+            <a href="index.html" class="icon icon-home"> L5Kit
           
 
           
@@ -84,24 +86,44 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ML Prediction, Planning and Simulation for Self-Driving</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#l5kit-usage">L5Kit Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#agent-motion-prediction">Agent Motion Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#planning">Planning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="#news">News</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#overview">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#datasets">1. Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#datasets">1. Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#download-the-datasets">Download the datasets</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#l5kit">2. L5Kit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id1">3. Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dataset-visualization">Dataset visualization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#agent-motion-prediction">Agent motion prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Agent motion prediction</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#installation">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#clone-the-repo">1. Clone the repo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#download-the-datasets">2. Download the datasets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#install-l5kit">3. Install L5Kit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#generate-l5kit-code-html-documentation-optional">4. Generate L5Kit code html documentation (optional)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#run-example">5. Run example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-as-a-user">Installing as a User</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-package-from-pypy-in-your-project-venv">1. Install the package from pypy (in your project venv)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-example">2. Run example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-as-a-developer">Installing as a Developer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-the-repo">1. Clone the repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-l5kit">3. Install L5Kit</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deterministic-build-suggested">3.1 Deterministic Build (Suggested)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#latest-build">3.1 Latest Build</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-l5kit-code-html-documentation-optional">4. Generate L5Kit code html documentation (optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5. Run example</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#license">License</a></li>
@@ -112,7 +134,14 @@
 <li class="toctree-l1"><a class="reference internal" href="#contact">Contact</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_format.html">Dataset Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coords_systems.html">Coordinate Systems in L5Kit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coords_systems.html#introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coords_systems.html#coordinate-systems">Coordinate Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_to_contribute.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="competition.html">Competition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="competition.html#scoring">Scoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="competition.html#coordinates-system-for-the-competition">Coordinates System for the competition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="competition.html#additional-metrics">Additional Metrics</a></li>
 </ul>
 
             
@@ -153,6 +182,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -164,7 +195,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
           
         
@@ -196,10 +227,48 @@
 <li><p>Plan behavior of an AV in order to imitate human driving.</p></li>
 <li><p>Study the improvement in performance of these systems as the amount of data increases.</p></li>
 </ul>
+<p>We provide several notebooks with examples and applications.</p>
+<div class="section" id="l5kit-usage">
+<h2>L5Kit Usage<a class="headerlink" href="#l5kit-usage" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/visualisation/visualise_data.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>Our <a class="reference external" href="./examples/visualisation/visualise_data.ipynb">visualisation notebook</a> is the perfect place to start if you want to
+know more about L5Kit.</p>
+</div>
+<div class="section" id="agent-motion-prediction">
+<h2>Agent Motion Prediction<a class="headerlink" href="#agent-motion-prediction" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/agent_motion_prediction/agent_motion_prediction.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<p>Related to our 2020 competition, we provide a <a class="reference external" href="./examples/agent_motion_prediction/agent_motion_prediction.ipynb">notebook to train and test</a> our baseline model for predicting
+future agents trajectories.</p>
+</div>
+<div class="section" id="planning">
+<h2>Planning<a class="headerlink" href="#planning" title="Permalink to this headline">¶</a></h2>
+<p>We provide 3 notebooks for a deep dive into planning for a Self Driving Vehicle (SDV).
+Please refer to our <a class="reference internal" href="examples/planning/README.html"><span class="doc">README</span></a> for a full description of what you can achieve using them:</p>
+<ul class="simple">
+<li><p>you can train your first ML policy for planning using our <a class="reference external" href="./examples/planning/train.ipynb">training notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/train.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+<li><p>you can evaluate your model in the open-loop setting using our <a class="reference external" href="./examples/planning/open_loop_test.ipynb">open-loop evaluation notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/open_loop_test.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+<li><p>you can evaluate your model in the closed-loop setting using our <a class="reference external" href="./examples/planning/closed_loop_test.ipynb">closed-loop evaluation notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/closed_loop_test.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+</ul>
+<p>We also provide pre-trained models for this task. Please refer to the <a class="reference external" href="./examples/planning/train.ipynb">training notebook</a>.</p>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>We provide a simulation notebook to test interaction between agents and the SDV when they are both controlled by a ML policy.</p>
+<ul class="simple">
+<li><p>test your ML policy for simulation using our <a class="reference external" href="./examples/simulation/simulation_test.ipynb">simulation evaluation notebook</a> <br /><a class="reference external" href="https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/simulation/simulation_test.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="news">
 <h1>News<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
+<li><p>04-16-2021: We’ve just released a new notebook for the ML simulation task!</p></li>
+<li><p>12-03-2020: We’ve just released a series of notebooks to train and evaluate an ML planning model. We’ve also included pre-trained models! Learn more about this in the dedicated <a class="reference internal" href="examples/planning/README.html"><span class="doc">README</span></a></p></li>
+<li><p>11-26-2020: <a class="reference external" href="https://www.kaggle.com/c/lyft-motion-prediction-autonomous-vehicles/overview">2020 Kaggle Lyft Motion Prediction for Autonomous Vehicles Competition</a> ended. We had more than 900 teams taking part in it!</p></li>
+<li><p>11-16-2020: <a class="reference external" href="https://corlconf.github.io/paper_86/">Dataset paper</a> presented at CoRL 2020</p></li>
+<li><p>09-29-2020: L5Kit v1.0.1 released</p></li>
+<li><p>08-25-2020: <a class="reference external" href="https://www.kaggle.com/c/lyft-motion-prediction-autonomous-vehicles/overview">2020 Kaggle Lyft Motion Prediction for Autonomous Vehicles Competition</a> started</p></li>
+<li><p>08-24-2020: L5Kit v1.0.6 and Dataset v1.1 (includes traffic light support) released!</p></li>
 <li><p>06-25-2020: Docs and API available at https://lyft.github.io/l5kit/ (thanks Kevin Zhao!)</p></li>
 </ul>
 </div>
@@ -221,6 +290,26 @@ It consists of the following components:</p>
 <li><p>A high-definition aerial map of the Palo Alto area. This image has 8cm per pixel resolution and is provided by <a class="reference external" href="https://www.nearmap.com/">NearMap</a>.</p></li>
 </ul>
 <p>To read more about the dataset and how it was generated, read the <a class="reference external" href="https://arxiv.org/abs/2006.14480">dataset whitepaper</a>.</p>
+<p><strong>Note (08-24-20):</strong> The new version of the dataset includes dynamic traffic light support.
+Please update your L5Kit version to v1.0.6 to start using this functionality.</p>
+<div class="section" id="download-the-datasets">
+<h3>Download the datasets<a class="headerlink" href="#download-the-datasets" title="Permalink to this headline">¶</a></h3>
+<p>Register at https://self-driving.lyft.com/level5/data/ and download the <a class="reference external" href="https://arxiv.org/abs/2006.14480">2020 Lyft prediction dataset</a>.
+Store all files in a single folder to match this structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prediction</span><span class="o">-</span><span class="n">dataset</span><span class="o">/</span>
+  <span class="o">+-</span> <span class="n">scenes</span><span class="o">/</span>
+        <span class="o">+-</span> <span class="n">sample</span><span class="o">.</span><span class="n">zarr</span>
+        <span class="o">+-</span> <span class="n">train</span><span class="o">.</span><span class="n">zarr</span>
+        <span class="o">+-</span> <span class="n">train_full</span><span class="o">.</span><span class="n">zarr</span>
+  <span class="o">+-</span> <span class="n">aerial_map</span><span class="o">/</span>
+        <span class="o">+-</span> <span class="n">aerial_map</span><span class="o">.</span><span class="n">png</span>
+  <span class="o">+-</span> <span class="n">semantic_map</span><span class="o">/</span>
+        <span class="o">+-</span> <span class="n">semantic_map</span><span class="o">.</span><span class="n">pb</span>
+  <span class="o">+-</span> <span class="n">meta</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>You may find other downloaded files and folders (mainly from <code class="docutils literal notranslate"><span class="pre">aerial_map</span></code>), but they are not currently required by L5Kit</p>
+</div>
 </div>
 <div class="section" id="l5kit">
 <h2>2. L5Kit<a class="headerlink" href="#l5kit" title="Permalink to this headline">¶</a></h2>
@@ -242,36 +331,71 @@ It consists of the following components:</p>
 <h3>Dataset visualization<a class="headerlink" href="#dataset-visualization" title="Permalink to this headline">¶</a></h3>
 <p>A tutorial on how to load and visualize samples from a dataset using L5Kit.</p>
 </div>
-<div class="section" id="agent-motion-prediction">
-<h3>Agent motion prediction<a class="headerlink" href="#agent-motion-prediction" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>Agent motion prediction<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p>An example of training a neural network to predict the future positions of cars nearby an AV. This example is a baseline solution for the Lyft 2020 Kaggle Motion Prediction Challenge.</p>
 </div>
 </div>
 </div>
 <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-as-a-user">
+<h2>Installing as a User<a class="headerlink" href="#installing-as-a-user" title="Permalink to this headline">¶</a></h2>
+<p>Follow this workflow if:</p>
+<ul class="simple">
+<li><p>you’re not interested in developing and/or contributing to L5Kit;</p></li>
+<li><p>you don’t need any features from a specific branch or latest master and you’re fine with the latest release;</p></li>
+</ul>
+<div class="section" id="install-the-package-from-pypy-in-your-project-venv">
+<h3>1. Install the package from pypy (in your project venv)<a class="headerlink" href="#install-the-package-from-pypy-in-your-project-venv" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install l5kit
+</pre></div>
+</div>
+<p>You should now be able to import from L5Kit (e.g. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">l5kit.data</span> <span class="pre">import</span> <span class="pre">ChunkedDataset</span></code> should work)</p>
+</div>
+<div class="section" id="run-example">
+<h3>2. Run example<a class="headerlink" href="#run-example" title="Permalink to this headline">¶</a></h3>
+<p>Examples are not shipped with the package, but you can download the zip release from:
+<a class="reference external" href="https://github.com/lyft/l5kit/releases">L5Kit Releases</a></p>
+<p>Please download the zip matching your installed version (you can run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">freeze</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">l5kit</span></code> to get the right version)
+Unzip the files and grab the example folder in the root of the project.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter notebook examples/visualisation/visualise_data.ipynb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installing-as-a-developer">
+<h2>Installing as a Developer<a class="headerlink" href="#installing-as-a-developer" title="Permalink to this headline">¶</a></h2>
+<p>Follow this workflow if:</p>
+<ul class="simple">
+<li><p>you want to test latest master or another branch;</p></li>
+<li><p>you want to contribute to L5Kit;</p></li>
+<li><p>you want to test the examples using a non-release version of the code;</p></li>
+</ul>
 <div class="section" id="clone-the-repo">
-<h2>1. Clone the repo<a class="headerlink" href="#clone-the-repo" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lyft/l5kit.git ./
+<h3>1. Clone the repo<a class="headerlink" href="#clone-the-repo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/lyft/l5kit.git
+<span class="nb">cd</span> l5kit/l5kit
 </pre></div>
 </div>
-</div>
-<div class="section" id="download-the-datasets">
-<h2>2. Download the datasets<a class="headerlink" href="#download-the-datasets" title="Permalink to this headline">¶</a></h2>
-<p>Register at https://self-driving.lyft.com/level5/data/ and download the <a class="reference external" href="https://arxiv.org/abs/2006.14480">2020 Lyft prediction dataset</a>. Store all files in a single folder.
-The resulting directory structure should be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prediction</span><span class="o">-</span><span class="n">dataset</span><span class="o">/</span>
-  <span class="o">+-</span> <span class="n">sample_scenes</span><span class="o">/</span>
-  <span class="o">+-</span> <span class="n">scenes</span><span class="o">/</span>
-  <span class="o">+-</span> <span class="n">aerial_map</span><span class="o">/</span>
-  <span class="o">+-</span> <span class="n">semantic_map</span><span class="o">/</span>
-</pre></div>
-</div>
+<p>Please note the double <code class="docutils literal notranslate"><span class="pre">l5kit</span></code> in the path, as we need to <code class="docutils literal notranslate"><span class="pre">cd</span></code> where <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file is.</p>
 </div>
 <div class="section" id="install-l5kit">
-<h2>3. Install L5Kit<a class="headerlink" href="#install-l5kit" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> l5kit
-pip install -r requirements.txt
+<h3>3. Install L5Kit<a class="headerlink" href="#install-l5kit" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="deterministic-build-suggested">
+<h4>3.1 Deterministic Build (Suggested)<a class="headerlink" href="#deterministic-build-suggested" title="Permalink to this headline">¶</a></h4>
+<p>We support deterministic build through <a class="reference external" href="https://pipenv-fork.readthedocs.io/en/latest/">pipenv</a>.</p>
+<p>Once you’ve installed pipenv (or made it available in your env) run:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pipenv sync --dev
+</pre></div>
+</div>
+<p>This will install all dependencies (<code class="docutils literal notranslate"><span class="pre">--dev</span></code> includes dev-packages too) from the lock file.</p>
+</div>
+<div class="section" id="latest-build">
+<h4>3.1 Latest Build<a class="headerlink" href="#latest-build" title="Permalink to this headline">¶</a></h4>
+<p>If you don’t care about determinist builds or you’re having troubles with packages resolution (Windows, Python&lt;3.7, etc..),
+you can install directly from the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> by running:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip install -e .<span class="s2">&quot;[dev]&quot;</span>
 </pre></div>
 </div>
 <p>If you run into trouble installing L5Kit on Windows, you may need to</p>
@@ -280,17 +404,19 @@ pip install -r requirements.txt
 <li><p>install <a class="reference external" href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Microsoft C++ Build Tools</a>.</p></li>
 </ul>
 </div>
+</div>
 <div class="section" id="generate-l5kit-code-html-documentation-optional">
-<h2>4. Generate L5Kit code html documentation (optional)<a class="headerlink" href="#generate-l5kit-code-html-documentation-optional" title="Permalink to this headline">¶</a></h2>
+<h3>4. Generate L5Kit code html documentation (optional)<a class="headerlink" href="#generate-l5kit-code-html-documentation-optional" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sphinx-apidoc --module-first --separate -o API/ l5kit/l5kit l5kit/l5kit/tests*
 sphinx-build . docs
 </pre></div>
 </div>
 </div>
-<div class="section" id="run-example">
-<h2>5. Run example<a class="headerlink" href="#run-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>5. Run example<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>jupyter notebook examples/visualisation/visualise_data.ipynb
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -341,37 +467,29 @@ sphinx-build . docs
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to L5Kit’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to L5Kit’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Lyft Level 5
+        &#169; Copyright 2020, Lyft Level 5.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

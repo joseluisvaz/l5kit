@@ -19,7 +19,45 @@ You can use this framework to build systems which:
 * Plan behavior of an AV in order to imitate human driving.
 * Study the improvement in performance of these systems as the amount of data increases.
 
+We provide several notebooks with examples and applications.
+
+### L5Kit Usage
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/visualisation/visualise_data.ipynb)
+
+Our [visualisation notebook](./examples/visualisation/visualise_data.ipynb) is the perfect place to start if you want to 
+know more about L5Kit.
+
+### Agent Motion Prediction
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/agent_motion_prediction/agent_motion_prediction.ipynb)
+
+Related to our 2020 competition, we provide a [notebook to train and test](./examples/agent_motion_prediction/agent_motion_prediction.ipynb) our baseline model for predicting
+future agents trajectories.
+
+### Planning
+We provide 3 notebooks for a deep dive into planning for a Self Driving Vehicle (SDV).
+Please refer to our [README](./examples/planning/README.md) for a full description of what you can achieve using them:
+* you can train your first ML policy for planning using our [training notebook](./examples/planning/train.ipynb) \
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/train.ipynb)
+* you can evaluate your model in the open-loop setting using our [open-loop evaluation notebook](./examples/planning/open_loop_test.ipynb) \
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/open_loop_test.ipynb)
+* you can evaluate your model in the closed-loop setting using our [closed-loop evaluation notebook](./examples/planning/closed_loop_test.ipynb) \
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/planning/closed_loop_test.ipynb)
+
+We also provide pre-trained models for this task. Please refer to the [training notebook](./examples/planning/train.ipynb). 
+
+### Simulation
+We provide a simulation notebook to test interaction between agents and the SDV when they are both controlled by a ML policy.
+* test your ML policy for simulation using our [simulation evaluation notebook](./examples/simulation/simulation_test.ipynb) \
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lyft/l5kit/blob/master/examples/simulation/simulation_test.ipynb)
+
 # News
+- 04-16-2021: We've just released a new notebook for the ML simulation task!
+- 12-03-2020: We've just released a series of notebooks to train and evaluate an ML planning model. We've also included pre-trained models! Learn more about this in the dedicated [README](./examples/planning/README.md)
+- 11-26-2020: [2020 Kaggle Lyft Motion Prediction for Autonomous Vehicles Competition](https://www.kaggle.com/c/lyft-motion-prediction-autonomous-vehicles/overview) ended. We had more than 900 teams taking part in it!
+- 11-16-2020: [Dataset paper](https://corlconf.github.io/paper_86/) presented at CoRL 2020  
+- 09-29-2020: L5Kit v1.0.1 released 
+- 08-25-2020: [2020 Kaggle Lyft Motion Prediction for Autonomous Vehicles Competition](https://www.kaggle.com/c/lyft-motion-prediction-autonomous-vehicles/overview) started  
+- 08-24-2020: L5Kit v1.0.6 and Dataset v1.1 (includes traffic light support) released! 
 - 06-25-2020: Docs and API available at https://lyft.github.io/l5kit/ (thanks Kevin Zhao!)
 
 # Overview
@@ -36,6 +74,28 @@ It consists of the following components:
 * A high-definition aerial map of the Palo Alto area. This image has 8cm per pixel resolution and is provided by [NearMap](https://www.nearmap.com/).
 
 To read more about the dataset and how it was generated, read the [dataset whitepaper](https://arxiv.org/abs/2006.14480).
+
+**Note (08-24-20):** The new version of the dataset includes dynamic traffic light support. 
+Please update your L5Kit version to v1.0.6 to start using this functionality.
+
+### Download the datasets
+Register at https://self-driving.lyft.com/level5/data/ and download the [2020 Lyft prediction dataset](https://arxiv.org/abs/2006.14480). 
+Store all files in a single folder to match this structure:
+```
+prediction-dataset/
+  +- scenes/
+        +- sample.zarr
+        +- train.zarr
+        +- train_full.zarr
+  +- aerial_map/
+        +- aerial_map.png
+  +- semantic_map/
+        +- semantic_map.pb
+  +- meta.json
+
+```
+You may find other downloaded files and folders (mainly from `aerial_map`), but they are not currently required by L5Kit
+
 
 ## 2. L5Kit
 L5Kit is a library which lets you:
@@ -57,27 +117,61 @@ A tutorial on how to load and visualize samples from a dataset using L5Kit.
 An example of training a neural network to predict the future positions of cars nearby an AV. This example is a baseline solution for the Lyft 2020 Kaggle Motion Prediction Challenge.
 
 # Installation
+
+## Installing as a User
+Follow this workflow if:
+ - you're not interested in developing and/or contributing to L5Kit;
+ - you don't need any features from a specific branch or latest master and you're fine with the latest release;
+ 
+### 1. Install the package from pypy (in your project venv)
+```shell
+pip install l5kit
+```
+You should now be able to import from L5Kit (e.g. `from l5kit.data import ChunkedDataset` should work)
+
+### 2. Run example
+Examples are not shipped with the package, but you can download the zip release from:
+[L5Kit Releases](https://github.com/lyft/l5kit/releases)
+
+Please download the zip matching your installed version (you can run `pip freeze | grep l5kit` to get the right version)
+Unzip the files and grab the example folder in the root of the project.
+
+```shell
+jupyter notebook examples/visualisation/visualise_data.ipynb
+```
+
+## Installing as a Developer
+Follow this workflow if:
+ - you want to test latest master or another branch;
+ - you want to contribute to L5Kit;
+ - you want to test the examples using a non-release version of the code;
+
 ### 1. Clone the repo
 ```shell
-git clone https://github.com/lyft/l5kit.git ./
+git clone https://github.com/lyft/l5kit.git
+cd l5kit/l5kit
 ```
 
-### 2. Download the datasets
-Register at https://self-driving.lyft.com/level5/data/ and download the [2020 Lyft prediction dataset](https://arxiv.org/abs/2006.14480). Store all files in a single folder.
-The resulting directory structure should be:
-```
-prediction-dataset/
-  +- sample_scenes/
-  +- scenes/
-  +- aerial_map/
-  +- semantic_map/
-```
+Please note the double `l5kit` in the path, as we need to `cd` where `setup.py` file is.
 
 ### 3. Install L5Kit
+
+#### 3.1 Deterministic Build (Suggested)
+We support deterministic build through [pipenv](https://pipenv-fork.readthedocs.io/en/latest/).
+
+Once you've installed pipenv (or made it available in your env) run: 
 ```shell
-cd l5kit
-pip install -r requirements.txt
+pipenv sync --dev
 ```
+This will install all dependencies (`--dev` includes dev-packages too) from the lock file.
+
+#### 3.1 Latest Build
+If you don't care about determinist builds or you're having troubles with packages resolution (Windows, Python<3.7, etc..),
+you can install directly from the `setup.py` by running:
+```shell
+pip install -e ."[dev]"
+```
+
 If you run into trouble installing L5Kit on Windows, you may need to
 - install Pytorch and torchvision manually first (select the correct version required by your system, i.e. GPU or CPU-only), then run L5Kit install (remove the packages [torch](https://github.com/lyft/l5kit/blob/59f36f348682aac5fc488c6d39dd58f8c27b1ec6/l5kit/setup.py#L23) and [torchvision](https://github.com/lyft/l5kit/blob/59f36f348682aac5fc488c6d39dd58f8c27b1ec6/l5kit/setup.py#L24) from ```setup.py```)
 - install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
